@@ -1,0 +1,266 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Comic Neue', cursive, sans-serif;
+  color: #4a3c31;
+}
+
+/* Background container with blur image */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1920&q=80');
+  background-size: cover;
+  background-position: center;
+  filter: blur(12px) brightness(0.7);
+  z-index: -2;
+}
+
+/* Overlay to maintain white background with transparency */
+#overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(255, 255, 255, 0.85);
+  z-index: -1;
+}
+
+#page-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  background: #5d4037; /* elegant brown */
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+  z-index: 10;
+  position: relative;
+}
+nav .logo {
+  color: #fcf1e7; /* soft cream */
+  font-weight: 700;
+  font-size: 2.2rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  user-select: none;
+  text-shadow: 1px 1px 3px #3b291ccc;
+  cursor: default;
+}
+nav .filters {
+  display: flex;
+  gap: 12px;
+}
+nav .filters button {
+  background: #7b5e4dcc; /* light elegant brown */
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 700;
+  color: #f1e6dc; /* cream */
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  box-shadow: 0 3px 6px #6a4f3bcc;
+  user-select: none;
+  font-size: 1rem;
+  letter-spacing: 0.8px;
+  font-family: 'Comic Neue', cursive, sans-serif;
+}
+nav .filters button:hover,
+nav .filters button.active {
+  background: #3e2723; /* deep brown */
+  color: #deb887; /* burlywood, warm tan */
+  box-shadow: 0 6px 14px #a57d5a99;
+  transform: scale(1.1) rotate(-3deg);
+}
+
+header {
+  text-align: center;
+  padding: 2rem 1rem 3rem;
+  color: #6d4c41dd; /* transparent brown */
+  text-shadow: 0 0 10px #a1887fbb;
+  z-index: 10;
+  position: relative;
+}
+header h1 {
+  margin: 0;
+  font-weight: 700;
+  font-size: 3.8rem;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  cursor: default;
+}
+header p.subtitle {
+  font-weight: 500;
+  font-size: 1.3rem;
+  margin-top: 0.5rem;
+  font-style: italic;
+  color: #a1887fcc;
+  text-shadow: none;
+}
+
+main {
+  flex: 1;
+  max-width: 1120px;
+  margin: 0 auto 3rem;
+  padding: 0 1rem;
+  z-index: 10;
+  position: relative;
+}
+.catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+  gap: 2rem;
+  transition: all 0.3s ease-in-out;
+}
+.perfume-card {
+  background: #f3ebe4; /* creamy light brown */
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow:
+    0 6px 10px rgb(93 64 55 / 0.3),
+    0 10px 25px rgb(93 64 55 / 0.2);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  position: relative;
+  cursor: pointer;
+  font-family: 'Comic Neue', cursive, sans-serif;
+  border: 3px solid #bfa28b;
+  box-sizing: border-box;
+}
+.perfume-card::before {
+  content: "😄";
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 2.5rem;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  z-index: 1;
+}
+.perfume-card:hover::before {
+  opacity: 0.7;
+  transform: rotate(20deg);
+}
+.perfume-card:hover {
+  transform: scale(1.08) rotate(-1deg);
+  box-shadow:
+    0 14px 40px rgb(93 64 55 / 0.5),
+    0 20px 50px rgb(93 64 55 / 0.3);
+  z-index: 5;
+}
+
+.perfume-img {
+  width: 100%;
+  height: 280px;
+  object-fit: contain;
+  border-bottom: 3px dashed #bfa28b;
+  background: #fdf8f5;
+  border-radius: 25px 25px 0 0;
+  padding: 1rem 1rem 0;
+  box-shadow: inset 0 -5px 12px rgba(191, 162, 139, 0.3);
+  transition: transform 0.5s ease;
+  position: relative;
+  z-index: 2;
+}
+.perfume-card:hover .perfume-img {
+  transform: scale(1.15) rotate(3deg);
+  box-shadow: 0 25px 35px rgba(191, 162, 139, 0.45);
+}
+
+.perfume-info {
+  padding: 1.2rem 1.6rem 2rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #4a342e;
+  text-shadow: 0 0 3px #d9ccbbae;
+  position: relative;
+  z-index: 2;
+}
+.perfume-name {
+  font-weight: 700;
+  font-size: 1.6rem;
+  margin-bottom: 0.2rem;
+  letter-spacing: 1.5px;
+}
+.perfume-brand {
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  color: #6b4c3b;
+  letter-spacing: 1px;
+}
+.perfume-desc {
+  font-size: 1rem;
+  flex-grow: 1;
+  margin-bottom: 1.3rem;
+  line-height: 1.4;
+  font-style: italic;
+  color: #796755;
+  text-shadow: 0 0 1px #fff5e6bb;
+}
+.perfume-price {
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-align: right;
+  color: #7a4f24;
+  letter-spacing: 0.8px;
+  text-shadow: 0 2px 4px #ccb88e99;
+  font-family: 'Comic Neue', cursive, sans-serif;
+}
+
+footer {
+  background: #5d4037;
+  color: #e6d7c5;
+  padding: 1rem 1.5rem;
+  text-align: center;
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 1.5px;
+  user-select: none;
+  box-shadow: 0 -5px 15px rgba(0,0,0,0.15);
+  margin-top: auto;
+  position: relative;
+  z-index: 10;
+}
+footer span {
+  color: #bfa28b;
+  font-weight: 900;
+  font-style: italic;
+}
+
+@media (max-width: 480px) {
+  nav .filters {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  nav .filters button {
+    flex: 1 1 calc(50% - 1rem);
+    margin-bottom: 0.5rem;
+  }
+  header h1 {
+    font-size: 2.8rem;
+  }
+  .perfume-img {
+    height: 220px;
+  }
+  .perfume-price {
+    font-size: 1.1rem;
+  }
+}
