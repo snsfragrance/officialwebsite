@@ -1,1 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Katalog Parfum Funny - SNS Fragrance</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap');
 
+    * {
+      box-sizing: border-box;
+    }
+
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Comic Neue', cursive, sans-serif;
+      color: #4a3c31;
+    }
+
+    /* Background container with blur image */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1502602898657-3e91760cbb34?auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      filter: blur(12px) brightness(0.7);
+      z-index: -2;
+    }
+
+    /* Overlay to maintain white background with transparency */
+    #overlay {
+      position: fixed;
+      inset: 0;
+      background-color: rgba(255, 255, 255, 0.85);
+      z-index: -1;
+    }
+
+    #page-container {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    nav {
+      background: #5d4037; /* elegant brown */
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+      z-index: 10;
+      position: relative;
+    }
+    nav .logo {
+      color: #fcf1e7; /* soft cream */
+      font-weight: 700;
+      font-size: 2.2rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      user-select: none;
+      text-shadow: 1px 1px 3px #3b291ccc;
+      cursor: default;
+    }
+    nav .filters {
+      display: flex;
+      gap: 12px;
+    }
+    nav .filters button {
+      background: #7b5e4dcc; /* light elegant brown */
+      border: none;
+      border-radius: 25px;
+      padding: 0.5rem 1.2rem;
+      font-weight: 700;
+      color: #f1e6dc; /* cream */
+      cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
+      box-shadow: 0 3px 6px #6a4f3bcc;
+      user-select: none;
+      font-size: 1rem;
+      letter-spacing: 0.8px;
+      font-family: 'Comic Neue', cursive, sans-serif;
+    }
+    nav .filters button:hover,
+    nav .filters button.active {
+      background: #3e2723; /* deep brown */
+      color: #deb887; /* burlywood, warm tan */
+      box-shadow: 0 6px 14px #a57d5a99;
+      transform: scale(1.1) rotate(-3deg);
+    }
+
+    header {
+      text-align: center;
+      padding: 2rem 1rem 3rem;
+      color: #6d4c41dd; /* transparent brown */
+      text-shadow: 0 0 10px #a1887fbb;
+      z-index: 10;
+      position: relative;
+    }
+    header h1 {
+      margin: 0;
+      font-weight: 700;
+      font-size: 3.8rem;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      cursor: default;
+    }
+    header p.subtitle {
+      font-weight: 500;
+      font-size: 1.3rem;
+      margin-top: 0.5rem;
+      font-style: italic;
+      color: #a1887fcc;
+      text-shadow: none;
+    }
+
+    main {
+      flex: 1;
+      max-width: 1120px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+      z-index: 10;
+      position: relative;
+    }
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 2rem;
+      transition: all 0.3s ease-in-out;
+    }
+    .perfume-card {
+      background: #f3ebe4; /* creamy light brown */
+      border-radius: 25px;
+      overflow: hidden;
+      box-shadow:
+        0 6px 10px rgb(93 64 55 / 0.3),
+        0 10px 25px rgb(93 64 55 / 0.2);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      position: relative;
+      cursor: pointer;
+      font-family: 'Comic Neue', cursive, sans-serif;
+      border: 3px solid #bfa28b;
+      box-sizing: border-box;
+    }
+    .perfume-card::before {
+      content: "😄";
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      font-size: 2.5rem;
+      opacity: 0.4;
+      transition: opacity 0.4s ease;
+      user-select: none;
+      z-index: 1;
+    }
+    .perfume-card:hover::before {
+      opacity: 0.7;
+      transform: rotate(20deg);
+    }
+    .perfume-card:hover {
+      transform: scale(1.08) rotate(-1deg);
+      box-shadow:
+        0 14px 40px rgb(93 64 55 / 0.5),
+        0 20px 50px rgb(93 64 55 / 0.3);
+      z-index: 5;
+    }
+
+    .perfume-img {
+      width: 100%;
+      height: 280px;
+      object-fit: contain;
+      border-bottom: 3px dashed #bfa28b;
+      background: #fdf8f5;
+      border-radius: 25px 25px 0 0;
+      padding: 1rem 1rem 0;
+      box-shadow: inset 0 -5px 12px rgba(191, 162, 139, 0.3);
+      transition: transform 0.5s ease;
+      position: relative;
+      z-index: 2;
+    }
+    .perfume-card:hover .perfume-img {
+      transform: scale(1.15) rotate(3deg);
+      box-shadow: 0 25px 35px rgba(191, 162, 139, 0.45);
+    }
+
+    .perfume-info {
+      padding: 1.2rem 1.6rem 2rem;
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      color: #4a342e;
+      text-shadow: 0 0 3px #d9ccbbae;
+      position: relative;
+      z-index: 2;
+    }
+    .perfume-name {
+      font-weight: 700;
+      font-size: 1.6rem;
+      margin-bottom: 0.2rem;
+      letter-spacing: 1.5px;
+    }
+    .perfume-brand {
+      font-weight: 600;
+      font-size: 1.1rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      color: #6b4c3b;
+      letter-spacing: 1px;
+    }
+    .perfume-desc {
+      font-size: 1rem;
+      flex-grow: 1;
+      margin-bottom: 1.3rem;
+      line-height: 1.4;
+      font-style: italic;
+      color: #796755;
+      text-shadow: 0 0 1px #fff5e6bb;
+    }
+    .perfume-price {
+      font-size: 1.25rem;
+      font-weight: 800;
+      text-align: right;
+      color: #7a4f24;
+      letter-spacing: 0.8px;
+      text-shadow: 0 2px 4px #ccb88e99;
+      font-family: 'Comic Neue', cursive, sans-serif;
+    }
+
+    footer {
+      background: #5d4037;
+      color: #e6d7c5;
+      padding: 1rem 1.5rem;
+      text-align: center;
+      font-weight: 700;
+      font-size: 1rem;
+      letter-spacing: 1.5px;
+      user-select: none;
+      box-shadow: 0 -5px 15px rgba(0,0,0,0.15);
+      margin-top: auto;
+      position: relative;
+      z-index: 10;
+    }
+    footer span {
+      color: #bfa28b;
+      font-weight: 900;
+      font-style: italic;
+    }
+
+    @media (max-width: 480px) {
+      nav .filters {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      nav .filters button {
+        flex: 1 1 calc(50% - 1rem);
+        margin-bottom: 0.5rem;
+      }
+      header h1 {
+        font-size: 2.8rem;
+      }
+      .perfume-img {
+        height: 220px;
+      }
+      .perfume-price {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="overlay"></div>
+  <div id="page-container">
+    <nav>
+      <div class="logo">SNS FRAGRANCE</div>
+      <div class="filters" role="toolbar" aria-label="Filter Kategori Parfum">
+        <button class="filter-btn active" data-filter="all" aria-pressed="true">SEMUA</button>
+        <button class="filter-btn" data-filter="cocoa-amore" aria-pressed="false">COCOA AMORE</button>
+        <button class="filter-btn" data-filter="tranquilty" aria-pressed="false">TRANQUILTY</button>
+      </div>
+    </nav>
+    <header>
+      <h1>KATALOG SNS FRAGRANCE</h1>
+      <p class="subtitle">Temukan Aroma yang Membuatmu Tersenyum! 😄</p>
+    </header>
+    <main>
+      <section class="catalog-grid" aria-live="polite" aria-label="Daftar parfum">
+        <article class="perfume-card" data-category="cocoa-amore">
+          <img class="perfume-img" src="https://images.unsplash.com/photo-1572576014737-091c2278f1bc?auto=format&fit=crop&w=400&q=80" alt="Botol Parfum Elysian Bloom" />
+          <div class="perfume-info">
+            <div>
+              <h2 class="perfume-name">Elysian Bloom</h2>
+              <p class="perfume-brand">SNS Fragrance</p>
+              <p class="perfume-desc">Floral segar dengan sentuhan melati dan mawar yang manis, sempurna untuk hari ceria.</p>
+            </div>
+            <p class="perfume-price">Rp 750.000</p>
+          </div>
+        </article>
+
+        <article class="perfume-card" data-category="cocoa-amore">
+          <img class="perfume-img" src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=400&q=80" alt="Botol Parfum Midnight Ember" />
+          <div class="perfume-info">
+            <div>
+              <h2 class="perfume-name">Midnight Ember</h2>
+              <p class="perfume-brand">SNS Fragrance</p>
+              <p class="perfume-desc">Wangi hangat amber dan vanila dengan aroma kayu santai, cocok untuk malam yang ceria.</p>
+            </div>
+            <p class="perfume-price">Rp 1.250.000</p>
+          </div>
+        </article>
+
+        <article class="perfume-card" data-category="tranquilty">
+          <img class="perfume-img" src="https://images.unsplash.com/photo-1563322201-db229c453ba6?auto=format&fit=crop&w=400&q=80" alt="Botol Parfum Oceanic Whisper" />
+          <div class="perfume-info">
+            <div>
+              <h2 class="perfume-name">Oceanic Whisper</h2>
+              <p class="perfume-brand">SNS Fragrance</p>
+              <p class="perfume-desc">Kesegaran laut dan jeruk bergamot yang menenangkan, membuat hari lebih ringan dan lucu.</p>
+            </div>
+            <p class="perfume-price">Rp 920.000</p>
+          </div>
+        </article>
+
+        <article class="perfume-card" data-category="tranquilty">
+          <img class="perfume-img" src="https://images.unsplash.com/photo-1502672023488-70e25813eb80?auto=format&fit=crop&w=400&q=80" alt="Botol Parfum Velvet Noir" />
+          <div class="perfume-info">
+            <div>
+              <h2 class="perfume-name">Velvet Noir</h2>
+              <p class="perfume-brand">SNS Fragrance</p>
+              <p class="perfume-desc">Aroma musk dan anggrek hitam yang misterius dengan sentuhan lucu yang menyenangkan.</p>
+            </div>
+            <p class="perfume-price">Rp 1.480.000</p>
+          </div>
+        </article>
+
+        <article class="perfume-card" data-category="tranquilty">
+          <img class="perfume-img" src="https://images.unsplash.com/photo-1556910103-1f008df56524?auto=format&fit=crop&w=400&q=80" alt="Botol Parfum Citrus Serenade" />
+          <div class="perfume-info">
+            <div>
+              <h2 class="perfume-name">Citrus Serenade</h2>
+              <p class="perfume-brand">SNS Fragrance</p>
+              <p class="perfume-desc">Wangi cerah lemon, grapefruit, dan teh hijau yang menyegarkan dan membuat tersenyum.</p>
+            </div>
+            <p class="perfume-price">Rp 670.000</p>
+          </div>
+        </article>
+
+        <article class="perfume-card" data-category="cocoa-amore">
+          <img class="perfume-img" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?auto=format&fit=crop&w=400&q=80" alt="Botol Parfum Golden Sand" />
+          <div class="perfume-info">
+            <div>
+              <h2 class="perfume-name">Golden Sand</h2>
+              <p class="perfume-brand">SNS Fragrance</p>
+              <p class="perfume-desc">Aroma hangat dan manis dengan saffron dan vanilla, membuat mood jadi ceria dan lucu.</p>
+            </div>
+            <p class="perfume-price">Rp 1.300.000</p>
+          </div>
+        </article>
+      </section>
+    </main>
+    <footer>
+      &copy; 2024 <span>SNS Fragrance</span> &mdash; Temukan Aroma yang Membuatmu Tersenyum
+    </footer>
+  </div>
+  <script>
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    const perfumeCards = document.querySelectorAll('.perfume-card');
+
+    filterButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Update active styling and aria-pressed
+        filterButtons.forEach(btn => {
+          btn.classList.remove('active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+        button.classList.add('active');
+        button.setAttribute('aria-pressed', 'true');
+
+        const filter = button.getAttribute('data-filter');
+
+        perfumeCards.forEach(card => {
+          if(filter === 'all' || card.getAttribute('data-category') === filter){
+            card.style.display = 'flex';
+          } else {
+            card.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
