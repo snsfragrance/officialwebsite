@@ -141,7 +141,6 @@ main {
   box-sizing: border-box;
 }
 .perfume-card::before {
-  content: "😄";
   position: absolute;
   top: 15px;
   right: 15px;
