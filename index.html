@@ -107,16 +107,16 @@
               </video>
               <script>
                 const video = document.getElementById('myVideo');
-                video.addEventListener('loadedmetadata', () => {
-                  if (video.requestFullscreen || video.webkitRequestFullscreen || video.mozRequestFullScreen || video.msRequestFullscreen)
-                    video.controls = false;
-                  } else {
-                    console.log("Fullscreen API not supported.  Relying on CSS.");
-                  }
-                 });
-                  video.addEventListener('webkitbeginfullscreen', function() {
-                   video.webkitEndFullscreen();
-                  });
+                const playButton = document.getElementById('playButton');
+
+                playButton.addEventListener('click', () => {
+                  video.play();
+                });
+
+                video.addEventListener('canplay', () => {
+                  // Pastikan video di-mute saat siap diputar
+                  video.muted = true;
+                });
                 </script>
             </div>
           </div>
