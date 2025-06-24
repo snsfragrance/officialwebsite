@@ -101,14 +101,23 @@
           </div>
           <div class="col-lg-5 d-flex justify-content-center justify-content-lg-end" data-aos="zoom-out" data-aos-delay="300">
             <div class="book-cover">
-              <video class="autoplay-loop-video" width="100%" height="auto" autoplay="true" loop muted playsinline disableremoteplayback="true" aria-hidden="true" webkit-media-controls-play-button
-              webkit-media-controls: none !important;
-              webkit-media-controls-enclosure: none !important;
-              webkit-media-controls-panel: none !important;
-              webkit-media-controls-play-button: none !important;>
+              <video id="myVideo" class="autoplay-loop-video" width="100%" height="auto" autoplay="true" loop muted playsinline disableremoteplayback="true" aria-hidden="true">
                 <source src="assets/img/HISTORY.mp4" type="video/mp4">
                 <source src="assets/img/HISTORY.webm" type="video/webm">
               </video>
+              <script>
+                const video = document.getElementById('myVideo');
+                video.addEventListener('loadedmetadata', () => {
+                  if (video.requestFullscreen || video.webkitRequestFullscreen || video.mozRequestFullScreen || video.msRequestFullscreen)
+                    video.controls = false;
+                  } else {
+                    console.log("Fullscreen API not supported.  Relying on CSS.");
+                  }
+                 });
+                  video.addEventListener('webkitbeginfullscreen', function() {
+                   video.webkitEndFullscreen();
+                  });
+                </script>
             </div>
           </div>
          </div>
