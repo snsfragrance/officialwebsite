@@ -872,9 +872,9 @@
           <!-- Slide 1 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/VATICAN 1.jpg" alt="Vatican City" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/VATICAN 1.jpg" alt="Vatican 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Vatican City</h4>
+                <h4>Vatican Collection</h4>
               </div>
             </div>
           </div>
@@ -882,9 +882,9 @@
           <!-- Slide 2 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/VATICAN 2.jpg" alt="Vatican Gardens" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/VATICAN 2.jpg" alt="Vatican 2" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Vatican Gardens</h4>
+                <h4>Vatican Elegance</h4>
               </div>
             </div>
           </div>
@@ -892,9 +892,9 @@
           <!-- Slide 3 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/SPIAGGIA 1.jpg" alt="Italian Beach" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/SPIAGGIA 1.jpg" alt="Spiaggia 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Italian Coastline</h4>
+                <h4>Spiaggia Vibes</h4>
               </div>
             </div>
           </div>
@@ -902,9 +902,9 @@
           <!-- Slide 4 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/BARCELONA 1.jpg" alt="Barcelona Streets" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/BARCELONA 1.jpg" alt="Barcelona 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Barcelona Streets</h4>
+                <h4>Barcelona Nights</h4>
               </div>
             </div>
           </div>
@@ -912,9 +912,9 @@
           <!-- Slide 5 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/SYDNEY 1.jpg" alt="Sydney Harbour" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/SYDNEY 1.jpg" alt="Sydney 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Sydney Harbour</h4>
+                <h4>Sydney Sunrise</h4>
               </div>
             </div>
           </div>
@@ -922,9 +922,9 @@
           <!-- Slide 6 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/BUDAPEST 1.jpg" alt="Budapest at Night" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/BUDAPEST 1.jpg" alt="Budapest 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Budapest at Night</h4>
+                <h4>Budapest Glow</h4>
               </div>
             </div>
           </div>
@@ -932,9 +932,9 @@
           <!-- Slide 7 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/ALPS 1.jpg" alt="Swiss Alps" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/ALPS 1.jpg" alt="Alps 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Swiss Alps</h4>
+                <h4>Alpine Serenity</h4>
               </div>
             </div>
           </div>
@@ -942,9 +942,9 @@
           <!-- Slide 8 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/INNSBRUCK 1.jpg" alt="Innsbruck Valley" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/INNSBRUCK 1.jpg" alt="Innsbruck 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Innsbruck Valley</h4>
+                <h4>Innsbruck Charm</h4>
               </div>
             </div>
           </div>
@@ -952,9 +952,9 @@
           <!-- Slide 9 -->
           <div class="swiper-slide">
             <div class="gallery-item">
-              <img src="assets/img/product/VALLETTA 1.jpg" alt="Valletta, Malta" class="img-fluid" loading="lazy">
+              <img src="assets/img/product/VALLETTA 1.jpg" alt="Valletta 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Valletta, Malta</h4>
+                <h4>Valletta Sunset</h4>
               </div>
             </div>
           </div>
@@ -978,70 +978,67 @@
   .gallery-item {
     position: relative;
     overflow: hidden;
-    border-radius: 10px;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    background: #fff;
   }
 
   .gallery-item:hover {
-    transform: translateY(-5px);
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
   }
 
+  /* 🔑 Rasio 3:4 (tinggi 33% lebih besar dari lebar) */
   .gallery-item img {
     width: 100%;
     height: auto;
-    aspect-ratio: 4/3;
+    aspect-ratio: 3 / 4; /* ✅ 3:4 — portrait */
     object-fit: cover;
     display: block;
+    border-radius: 12px 12px 0 0;
   }
 
   .gallery-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    background: linear-gradient(transparent, rgba(0,0,0,0.7));
-    padding: 20px 15px 10px;
-    color: white;
+    padding: 16px 12px;
     text-align: center;
+    background: white;
   }
 
   .gallery-caption h4 {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     font-weight: 600;
+    color: #2d3748;
     margin: 0;
   }
 
-  /* Responsive spacing */
-  @media (min-width: 768px) {
+  /* Mobile: hide caption if too tight (optional) */
+  @media (max-width: 575px) {
+    .gallery-caption h4 {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Extra padding on desktop */
+  @media (min-width: 992px) {
     .gallery-slider {
       padding: 30px 0;
     }
   }
-
-  /* Hide caption on mobile if desired (uncomment below) */
-  /*
-  @media (max-width: 767px) {
-    .gallery-caption {
-      display: none;
-    }
-  }
-  */
 </style>
 
-<!-- Swiper JS (if not already included in your page) -->
+<!-- Swiper JS & Init (jika belum ada di halaman) -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-<!-- Swiper Auto-init (matches your testimonials pattern) -->
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Auto-init all swipers with .init-swiper
-    const swiperConfigs = document.querySelectorAll('.init-swiper .swiper-config');
-    swiperConfigs.forEach(configEl => {
-      const container = configEl.closest('.init-swiper');
-      if (container && !container.swiper) {
-        const config = JSON.parse(configEl.innerHTML);
+    // Auto-init Swiper (sama seperti di Testimonials Anda)
+    document.querySelectorAll('.init-swiper').forEach(container => {
+      if (container.swiper) return;
+      const script = container.querySelector('.swiper-config');
+      if (script) {
+        const config = JSON.parse(script.textContent);
         container.swiper = new Swiper(container, config);
       }
     });
