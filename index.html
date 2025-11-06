@@ -832,7 +832,26 @@
       </div> -->
     </section><!-- /Related Books Section
 
-     <!-- Gallery Section -->
+     
+                        <!DOCTYPE html>
+                        <html lang="en">
+                        <head>
+                            <meta charset="UTF-8">
+                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <style>
+                body {
+                  background-color: white; /* Ensure the iframe has a white background */
+                }
+    
+                  .gallery-item img {
+    border: 1px solid #f0f0f0;
+  }
+  
+
+              </style>
+                        </head>
+                        <body>
+                            <!-- Gallery Section -->
 <section id="gallery" class="gallery section">
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
@@ -874,7 +893,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/VATICAN 1.jpg" alt="Vatican 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Vatican Collection</h4>
+                <h4>Vatican 1</h4>
               </div>
             </div>
           </div>
@@ -884,7 +903,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/VATICAN 2.jpg" alt="Vatican 2" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Vatican Elegance</h4>
+                <h4>Vatican 2</h4>
               </div>
             </div>
           </div>
@@ -894,7 +913,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/SPIAGGIA 1.jpg" alt="Spiaggia 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Spiaggia Vibes</h4>
+                <h4>Spiaggia 1</h4>
               </div>
             </div>
           </div>
@@ -904,7 +923,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/BARCELONA 1.jpg" alt="Barcelona 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Barcelona Nights</h4>
+                <h4>Barcelona 1</h4>
               </div>
             </div>
           </div>
@@ -914,7 +933,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/SYDNEY 1.jpg" alt="Sydney 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Sydney Sunrise</h4>
+                <h4>Sydney 1</h4>
               </div>
             </div>
           </div>
@@ -924,7 +943,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/BUDAPEST 1.jpg" alt="Budapest 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Budapest Glow</h4>
+                <h4>Budapest 1</h4>
               </div>
             </div>
           </div>
@@ -934,7 +953,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/ALPS 1.jpg" alt="Alps 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Alpine Serenity</h4>
+                <h4>Alps 1</h4>
               </div>
             </div>
           </div>
@@ -944,7 +963,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/INNSBRUCK 1.jpg" alt="Innsbruck 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Innsbruck Charm</h4>
+                <h4>Innsbruck 1</h4>
               </div>
             </div>
           </div>
@@ -954,7 +973,7 @@
             <div class="gallery-item">
               <img src="assets/img/product/VALLETTA 1.jpg" alt="Valletta 1" class="img-fluid" loading="lazy">
               <div class="gallery-caption">
-                <h4>Valletta Sunset</h4>
+                <h4>Valletta 1</h4>
               </div>
             </div>
           </div>
@@ -979,47 +998,50 @@
     position: relative;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
     background: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .gallery-item:hover {
-    transform: translateY(-6px);
-    box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.1);
   }
 
-  /* 🔑 Rasio 3:4 (tinggi 33% lebih besar dari lebar) */
+  /* 🔑 Rasio 1:1 — persegi sempurna */
   .gallery-item img {
     width: 100%;
     height: auto;
-    aspect-ratio: 3 / 4; /* ✅ 3:4 — portrait */
+    aspect-ratio: 1 / 1; /* ✅ 1:1 — square */
     object-fit: cover;
     display: block;
-    border-radius: 12px 12px 0 0;
   }
 
   .gallery-caption {
-    padding: 16px 12px;
+    padding: 14px 10px;
     text-align: center;
     background: white;
+    border-top: 1px solid #f1f1f1;
   }
 
   .gallery-caption h4 {
-    font-size: 1.05rem;
+    font-size: 1rem;
     font-weight: 600;
-    color: #2d3748;
+    color: #333;
     margin: 0;
   }
 
-  /* Mobile: hide caption if too tight (optional) */
+  /* Mobile optimization */
   @media (max-width: 575px) {
     .gallery-caption h4 {
-      font-size: 0.95rem;
+      font-size: 0.9rem;
+    }
+    .gallery-slider {
+      padding: 15px 0;
     }
   }
 
-  /* Extra padding on desktop */
+  /* Desktop spacing */
   @media (min-width: 992px) {
     .gallery-slider {
       padding: 30px 0;
@@ -1027,7 +1049,7 @@
   }
 </style>
 
-<!-- Swiper JS & Init (jika belum ada di halaman) -->
+<!-- Swiper JS & Auto-init (jika belum ada di halaman) -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
@@ -1044,6 +1066,11 @@
     });
   });
 </script>
+<script>
+</script>
+</body>
+</html>
+                    
         
 <!--         <div class="row mt-5">
           <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="700">
