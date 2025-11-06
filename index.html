@@ -847,11 +847,7 @@
     border: 1px solid #f0f0f0;
   }
   
-
-              </style>
-                        </head>
-                        <body>
-                            <!-- Gallery Section -->
+<!-- Gallery Section -->
 <section id="gallery" class="gallery section">
   <!-- Section Title -->
   <div class="container section-title" data-aos="fade-up">
@@ -870,7 +866,7 @@
               "disableOnInteraction": false
             },
             "slidesPerView": 1,
-            "spaceBetween": 20,
+            "spaceBetween": 24,
             "pagination": {
               "el": ".swiper-pagination",
               "type": "bullets",
@@ -998,50 +994,56 @@
     position: relative;
     overflow: hidden;
     border-radius: 12px;
-    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.07);
     background: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
 
   .gallery-item:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 10px 24px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
   }
 
-  /* 🔑 Rasio 1:1 — persegi sempurna */
+  /* 🔑 Rasio 5:6 — tinggi 20% lebih besar dari lebar */
   .gallery-item img {
     width: 100%;
     height: auto;
-    aspect-ratio: 1 / 1; /* ✅ 1:1 — square */
+    aspect-ratio: 5 / 6; /* ✅ 5:6 — vertikal elegan */
     object-fit: cover;
     display: block;
+    border-radius: 12px 12px 0 0;
   }
 
+  /* 🔽 Caption digeser sedikit ke bawah (lebih rendah dari sebelumnya) */
   .gallery-caption {
-    padding: 14px 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 12px 12px; /* ↑ padding-top dinaikkan jadi 20px agar teks lebih ke bawah */
+    background: linear-gradient(transparent, rgba(0,0,0,0.2), rgba(0,0,0,0.7));
     text-align: center;
-    background: white;
-    border-top: 1px solid #f1f1f1;
+    color: white;
+    border-radius: 0 0 12px 12px;
   }
 
   .gallery-caption h4 {
-    font-size: 1rem;
+    font-size: 1.05rem;
     font-weight: 600;
-    color: #333;
     margin: 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
   }
 
   /* Mobile optimization */
   @media (max-width: 575px) {
     .gallery-caption h4 {
-      font-size: 0.9rem;
+      font-size: 0.95rem;
     }
     .gallery-slider {
       padding: 15px 0;
     }
   }
 
-  /* Desktop spacing */
   @media (min-width: 992px) {
     .gallery-slider {
       padding: 30px 0;
@@ -1049,13 +1051,13 @@
   }
 </style>
 
-<!-- Swiper JS & Auto-init (jika belum ada di halaman) -->
+<!-- Swiper JS (jika belum ada) -->
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
 <script>
   document.addEventListener('DOMContentLoaded', function() {
-    // Auto-init Swiper (sama seperti di Testimonials Anda)
+    // Auto-init seperti di Testimonials Anda
     document.querySelectorAll('.init-swiper').forEach(container => {
       if (container.swiper) return;
       const script = container.querySelector('.swiper-config');
@@ -1065,12 +1067,7 @@
       }
     });
   });
-</script>
-<script>
-</script>
-</body>
-</html>
-                    
+</script>                    
         
 <!--         <div class="row mt-5">
           <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="700">
