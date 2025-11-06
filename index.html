@@ -832,235 +832,274 @@
       </div> -->
     </section><!-- /Related Books Section
 
-     <!-- Related Books Section -->
-    <section id="gallery-books" class="related-books section light-background">
-      <!-- Section Title -->
-      
-            <<div class="container section-title" data-aos="fade-up">
-        <h1>Our Gallery</h1>
-      </div>
+     <!-- Swiper CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
+<style>
+  .gallery-slideshow {
+    margin: 2rem auto;
+  }
 
-        <div class="row gy-4">
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/VATICAN 1.jpg" width="100%" height="auto" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .swiper {
+    width: 100%;
+    height: 500px;
+    margin-bottom: 1rem;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/VATICAN 2.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/VATICAN 3.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .swiper-slide {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/VATICAN 4.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .swiper-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/SPIAGGIA 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .swiper-pagination-bullet {
+    background: #fff;
+    opacity: 0.7;
+    width: 12px;
+    height: 12px;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/SPIAGGIA 2.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .swiper-pagination-bullet-active {
+    opacity: 1;
+    background: #007bff;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/BARCELONA 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .gallery-thumbs .swiper-slide {
+    height: 80px;
+    cursor: pointer;
+    border: 2px solid transparent;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/SICILY 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .gallery-thumbs .swiper-slide-thumb-active {
+    border-color: #007bff;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/BARCELONA 2.jpeg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .gallery-thumbs img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/UK 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  /* Lightbox */
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.9);
+    z-index: 9999;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/UK 2.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .lightbox-overlay.active {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/SYDNEY 3.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/MONG KOK 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/SYDNEY 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .lightbox-caption {
+    color: white;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 16px;
+  }
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/SYDNEY 2.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  .close-lightbox {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+  }
+</style>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/BUDAPEST 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+<div class="container section-title" data-aos="fade-up">
+  <h1>Our Gallery</h1>
+</div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/BUDAPEST 2.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+<div class="container gallery-slideshow" data-aos="fade-up" data-aos-delay="100">
+  <!-- Main Slideshow -->
+  <div class="swiper gallery-top">
+    <div class="swiper-wrapper">
+      <!-- Dynamically populated by JS from images below -->
+    </div>
+    <!-- Pagination & Navigation -->
+    <div class="swiper-pagination"></div>
+    <button class="swiper-button-next"></button>
+    <button class="swiper-button-prev"></button>
+  </div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/SALZBURG 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+  <!-- Thumbnail Slider -->
+  <div class="swiper gallery-thumbs">
+    <div class="swiper-wrapper">
+      <!-- Will be filled by JS -->
+    </div>
+  </div>
+</div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/ALPS 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+<!-- Hidden image data source (preserves your original structure) -->
+<div id="image-data" style="display:none;">
+  <div class="col" data-caption="Vatican City 1"><img src="assets/img/product/VATICAN 1.jpg" alt="Vatican City 1"></div>
+  <div class="col" data-caption="Vatican City 2"><img src="assets/img/product/VATICAN 2.jpg" alt="Vatican City 2"></div>
+  <div class="col" data-caption="Vatican City 3"><img src="assets/img/product/VATICAN 3.jpg" alt="Vatican City 3"></div>
+  <div class="col" data-caption="Vatican City 4"><img src="assets/img/product/VATICAN 4.jpg" alt="Vatican City 4"></div>
+  <div class="col" data-caption="Spiaggia 1"><img src="assets/img/product/SPIAGGIA 1.jpg" alt="Spiaggia 1"></div>
+  <div class="col" data-caption="Spiaggia 2"><img src="assets/img/product/SPIAGGIA 2.jpg" alt="Spiaggia 2"></div>
+  <div class="col" data-caption="Barcelona 1"><img src="assets/img/product/BARCELONA 1.jpg" alt="Barcelona 1"></div>
+  <div class="col" data-caption="Sicily 1"><img src="assets/img/product/SICILY 1.jpg" alt="Sicily 1"></div>
+  <div class="col" data-caption="Barcelona 2"><img src="assets/img/product/BARCELONA 2.jpeg" alt="Barcelona 2"></div>
+  <div class="col" data-caption="UK 1"><img src="assets/img/product/UK 1.jpg" alt="UK 1"></div>
+  <div class="col" data-caption="UK 2"><img src="assets/img/product/UK 2.jpg" alt="UK 2"></div>
+  <div class="col" data-caption="Sydney 3"><img src="assets/img/product/SYDNEY 3.jpg" alt="Sydney 3"></div>
+  <div class="col" data-caption="Mong Kok 1"><img src="assets/img/product/MONG KOK 1.jpg" alt="Mong Kok 1"></div>
+  <div class="col" data-caption="Sydney 1"><img src="assets/img/product/SYDNEY 1.jpg" alt="Sydney 1"></div>
+  <div class="col" data-caption="Sydney 2"><img src="assets/img/product/SYDNEY 2.jpg" alt="Sydney 2"></div>
+  <div class="col" data-caption="Budapest 1"><img src="assets/img/product/BUDAPEST 1.jpg" alt="Budapest 1"></div>
+  <div class="col" data-caption="Budapest 2"><img src="assets/img/product/BUDAPEST 2.jpg" alt="Budapest 2"></div>
+  <div class="col" data-caption="Salzburg 1"><img src="assets/img/product/SALZBURG 1.jpg" alt="Salzburg 1"></div>
+  <div class="col" data-caption="Alps 1"><img src="assets/img/product/ALPS 1.jpg" alt="Alps 1"></div>
+  <div class="col" data-caption="Alps 2"><img src="assets/img/product/ALPS 2.jpg" alt="Alps 2"></div>
+  <div class="col" data-caption="Alps 3"><img src="assets/img/product/ALPS 3.jpg" alt="Alps 3"></div>
+  <div class="col" data-caption="Innsbruck 1"><img src="assets/img/product/INNSBRUCK 1.jpg" alt="Innsbruck 1"></div>
+  <div class="col" data-caption="Innsbruck 2"><img src="assets/img/product/INNSBRUCK 2.jpg" alt="Innsbruck 2"></div>
+  <div class="col" data-caption="Innsbruck 3"><img src="assets/img/product/INNSBRUCK 3.jpg" alt="Innsbruck 3"></div>
+  <div class="col" data-caption="Marseille 1"><img src="assets/img/product/MARSEILLE 1.jpg" alt="Marseille 1"></div>
+  <div class="col" data-caption="Vatican City 5"><img src="assets/img/product/VATICAN 5.jpeg" alt="Vatican City 5"></div>
+  <div class="col" data-caption="Valletta 1"><img src="assets/img/product/VALLETTA 1.jpg" alt="Valletta 1"></div>
+</div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/ALPS 2.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+<!-- Lightbox Overlay -->
+<div class="lightbox-overlay" id="lightbox">
+  <span class="close-lightbox">&times;</span>
+  <div class="lightbox-content">
+    <img id="lightbox-img" src="" alt="">
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+</div>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/ALPS 3.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/INNSBRUCK 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    // Extract image data
+    const imageData = Array.from(document.querySelectorAll("#image-data .col")).map(el => ({
+      src: el.querySelector('img').src,
+      alt: el.querySelector('img').alt,
+      caption: el.getAttribute('data-caption') || el.querySelector('img').alt
+    }));
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/INNSBRUCK 2.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+    // Build main slides
+    const mainSwiperWrapper = document.querySelector('.gallery-top .swiper-wrapper');
+    const thumbsSwiperWrapper = document.querySelector('.gallery-thumbs .swiper-wrapper');
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/INNSBRUCK 3.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+    imageData.forEach(item => {
+      // Main slide
+      const mainSlide = document.createElement('div');
+      mainSlide.className = 'swiper-slide';
+      mainSlide.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy">`;
+      mainSwiperWrapper.appendChild(mainSlide);
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/MARSEILLE 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+      // Thumbnail slide
+      const thumbSlide = document.createElement('div');
+      thumbSlide.className = 'swiper-slide';
+      thumbSlide.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy">`;
+      thumbsSwiperWrapper.appendChild(thumbSlide);
+    });
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/VATICAN 5.jpeg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
+    // Initialize Swipers
+    const galleryThumbs = new Swiper(".gallery-thumbs", {
+      spaceBetween: 10,
+      slidesPerView: 6,
+      watchSlidesProgress: true,
+      breakpoints: {
+        320: { slidesPerView: 3 },
+        480: { slidesPerView: 4 },
+        768: { slidesPerView: 5 },
+        1024: { slidesPerView: 6 }
+      }
+    });
 
-          <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-            <div class="related-book-card">
-              <div class="product-image">
-                <img src="assets/img/product/VALLETTA 1.jpg" alt="Book Cover" class="img-fluid">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-  </section>
+    const galleryTop = new Swiper(".gallery-top", {
+      spaceBetween: 10,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      thumbs: {
+        swiper: galleryThumbs,
+      },
+      on: {
+        click: function() {
+          const activeIndex = this.activeIndex;
+          openLightbox(activeIndex);
+        }
+      }
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+    const closeBtn = document.querySelector('.close-lightbox');
+
+    function openLightbox(index) {
+      const item = imageData[index];
+      lightboxImg.src = item.src;
+      lightboxCaption.textContent = item.caption;
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    lightbox.addEventListener('click', function(e) {
+      if (e.target === lightbox || e.target.classList.contains('close-lightbox')) {
+        closeLightbox();
+      }
+    });
+
+    // Keyboard support
+    document.addEventListener('keydown', function(e) {
+      if (!lightbox.classList.contains('active')) return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowRight') galleryTop.slideNext();
+      if (e.key === 'ArrowLeft') galleryTop.slidePrev();
+    });
+  });
+</script>
         
 <!--         <div class="row mt-5">
           <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="700">
