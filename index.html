@@ -831,21 +831,6 @@
         </div>
       </div> -->
     </section><!-- /Related Books Section
-
-     
-                        <!DOCTYPE html>
-                        <html lang="en">
-                        <head>
-                            <meta charset="UTF-8">
-                            <meta name="viewport" content="width=device-width, initial-scale=1.0">
-              <style>
-                body {
-                  background-color: white; /* Ensure the iframe has a white background */
-                }
-    
-                  .gallery-item img {
-    border: 1px solid #f0f0f0;
-  }
   
 <!-- Gallery Section -->
 <section id="gallery" class="gallery section light-background">
@@ -855,211 +840,205 @@
   </div>
 
   <div class="container" data-aos="fade-up" data-aos-delay="100">
-    <div class="swiper gallery-slider init-swiper" data-aos="fade-up" data-aos-delay="400">
-      <script type="application/json" class="swiper-config">
-        {
-          "loop": true,
-          "speed": 800,
-          "autoplay": {
-            "delay": 5000,
-            "disableOnInteraction": false
-          },
-          "slidesPerView": 1,
-          "spaceBetween": 24,
-          "pagination": {
-            "el": ".swiper-pagination",
-            "type": "bullets",
-            "clickable": true
-          },
-          "breakpoints": {
-            "576": {
-              "slidesPerView": 1,
-              "spaceBetween": 20
+    <!-- Swiper wrapper with safe padding for pagination -->
+    <div class="position-relative pb-5">
+      <div class="swiper gallery-slider init-swiper" data-aos="fade-up" data-aos-delay="400">
+        <script type="application/json" class="swiper-config">
+          {
+            "loop": true,
+            "speed": 800,
+            "autoplay": {
+              "delay": 5000,
+              "disableOnInteraction": false
             },
-            "768": {
-              "slidesPerView": 2,
-              "spaceBetween": 24
+            "slidesPerView": 1,
+            "spaceBetween": 20,
+            "pagination": {
+              "el": ".swiper-pagination",
+              "type": "bullets",
+              "clickable": true,
+              "dynamicBullets": true
             },
-            "992": {
-              "slidesPerView": 3,
-              "spaceBetween": 30
-            },
-            "1200": {
-              "slidesPerView": 3,
-              "spaceBetween": 40
+            "breakpoints": {
+              "576": { "slidesPerView": 1, "spaceBetween": 20 },
+              "768": { "slidesPerView": 2, "spaceBetween": 24 },
+              "992": { "slidesPerView": 3, "spaceBetween": 30 },
+              "1200": { "slidesPerView": 3, "spaceBetween": 40 }
             }
           }
-        }
-      </script>
+        </script>
 
-      <div class="swiper-wrapper">
-        <!-- Slide 1 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/VATICAN 1.jpg" 
-                alt="Vatican 1" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
+        <div class="swiper-wrapper">
+          <!-- Slide template (repeated 9x) -->
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/VATICAN 1.jpg" 
+                  alt="Vatican 1"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Vatican 1
+                </h5>
+              </div>
             </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Vatican 1</h5>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/VATICAN 2.jpg" 
+                  alt="Vatican 2"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Vatican 2
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/SPIAGGIA 1.jpg" 
+                  alt="Spiaggia 1"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Spiaggia 1
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/BARCELONA 1.jpg" 
+                  alt="Barcelona 1"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Barcelona 1
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/SYDNEY 1.jpg" 
+                  alt="Sydney 1"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Sydney 1
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/BUDAPEST 1.jpg" 
+                  alt="Budapest 1"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Budapest 1
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/ALPS 1.jpg" 
+                  alt="Alps 1"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Alps 1
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/INNSBRUCK 1.jpg" 
+                  alt="Innsbruck 1"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Innsbruck 1
+                </h5>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide">
+            <div class="card border-0 shadow-sm h-100 rounded-3 overflow-hidden">
+              <div class="ratio ratio-9x16">
+                <img 
+                  src="assets/img/product/VALLETTA 1.jpg" 
+                  alt="Valletta 1"
+                  class="object-fit-cover"
+                  loading="lazy"
+                >
+              </div>
+              <div class="card-body p-3">
+                <h5 class="card-title text-center mb-0 fw-semibold text-dark">
+                  Valletta 1
+                </h5>
+              </div>
             </div>
           </div>
         </div>
 
-        <!-- Slide 2 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/VATICAN 2.jpg" 
-                alt="Vatican 2" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
-            </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Vatican 2</h5>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/SPIAGGIA 1.jpg" 
-                alt="Spiaggia 1" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
-            </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Spiaggia 1</h5>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 4 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/BARCELONA 1.jpg" 
-                alt="Barcelona 1" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
-            </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Barcelona 1</h5>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 5 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/SYDNEY 1.jpg" 
-                alt="Sydney 1" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
-            </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Sydney 1</h5>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 6 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/BUDAPEST 1.jpg" 
-                alt="Budapest 1" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
-            </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Budapest 1</h5>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 7 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/ALPS 1.jpg" 
-                alt="Alps 1" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
-            </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Alps 1</h5>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 8 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/INNSBRUCK 1.jpg" 
-                alt="Innsbruck 1" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
-            </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Innsbruck 1</h5>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 9 -->
-        <div class="swiper-slide">
-          <div class="related-book-card h-100 d-flex flex-column">
-            <div class="product-image flex-grow-1">
-              <img 
-                src="assets/img/product/VALLETTA 1.jpg" 
-                alt="Valletta 1" 
-                class="img-fluid w-100 h-100" 
-                loading="lazy"
-                style="aspect-ratio: 9/16; object-fit: cover;"
-              >
-            </div>
-            <div class="gallery-caption text-center mt-2">
-              <h5 class="mb-0">Valletta 1</h5>
-            </div>
-          </div>
-        </div>
+        <!-- Pagination — safely positioned below -->
+        <div class="swiper-pagination mt-4"></div>
       </div>
-
-      <div class="swiper-pagination"></div>
     </div>
   </div>
-</section>             
+</section>          
         
 <!--         <div class="row mt-5">
           <div class="col-12 text-center" data-aos="fade-up" data-aos-delay="700">
